@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "simulate": "source .env && node ./functions/simulators/alpacaMintSimulator.js",
+    "uploadSecrets": "source .env && node ./functions/uploadSecrets.js"
+  },
+  "name": "tokenization",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jopaleti/tokenization.git",
+  "author": "jopaleti <oopaletijohnson@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@chainlink/functions-toolkit": "^0.2.8",
+    "dotenv": "^16.4.5",
+    "ethers": "5.7.2",
+    "prettier": "^3.2.5",
+    "secp256k1": "^5.0.0"
+  }
+}
