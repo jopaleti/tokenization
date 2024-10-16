@@ -13,7 +13,8 @@ contract DeployDTsla is Script {
     function run() public {
         string memory mintSource = vm.readFile(alpacaMintSource);
         vm.startBroadcast();
-        dTSLA dTsla = new dTSLA(mintSource, subId, alpacaRedeemSource);
+        dTSLA dTsla = new dTSLA(subId, alpacaRedeemSource);
+        dTsla.setMintSource(mintSource);
         vm.stopBroadcast();
         console2.log(address(dTsla));
     }

@@ -62,11 +62,16 @@ contract dTSLA is ConfirmedOwner, FunctionsClient, ERC20 {
     /*//////////////////////////////////////////////////////////////
                                 FUNCTIONS
     //////////////////////////////////////////////////////////////*/
-        constructor (string memory mintSourceCode, uint64 subId, string memory redeemSourceCode) ConfirmedOwner(msg.sender) FunctionsClient(SEPOLIA_FUNCTIONS_ROUTER) ERC20("dTSLA", "dTSLA") {
-            s_mintSourceCode = mintSourceCode;
+        constructor (uint64 subId, string memory redeemSourceCode) ConfirmedOwner(msg.sender) FunctionsClient(SEPOLIA_FUNCTIONS_ROUTER) ERC20("dTSLA", "dTSLA") {
+            // s_mintSourceCode = mintSourceCode;
             s_redeemSourceCode = redeemSourceCode;
             i_subId = subId;
         }
+
+        function setMintSource(string memory mintSourceCode) external onlyOwner {
+            s_mintSourceCode = mintSourceCode;
+        }
+
         // Send an HTTP request to:
         // 1. See how much TSLA is bought
         // 2. If enough TSLA is in the bank account, mint dTSLA
